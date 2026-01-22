@@ -22,15 +22,19 @@ export const RouletteWheel = ({ rotation, isSpinning }: RouletteWheelProps) => {
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
 
+    // 물리적 픽셀 크기 설정
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
 
-    ctx.scale(dpr, dpr);
-
+    // 논리적 크기는 CSS로 제어
     canvas.style.width = `${rect.width}px`;
     canvas.style.height = `${rect.height}px`;
 
-    drawWheel(ctx, menus, rotation);
+    // 스케일 적용 (논리적 좌표를 물리적 픽셀로 변환)
+    ctx.scale(dpr, dpr);
+
+    // 논리적 크기로 그리기
+    drawWheel(ctx, menus, rotation, rect.width, rect.height);
   }, [rotation]);
 
   return (
@@ -38,8 +42,6 @@ export const RouletteWheel = ({ rotation, isSpinning }: RouletteWheelProps) => {
       <canvas
         ref={canvasRef}
         className={`${styles.canvas} ${isSpinning ? styles.spinning : ''}`}
-        width={400}
-        height={400}
         aria-label="점심 메뉴 룰렛"
         role="img"
       />

@@ -309,7 +309,7 @@ gantt
 
 ### 2.3 Vercel 배포
 
-- [ ] **2.3.1** GitHub에 푸시
+- [x] **2.3.1** GitHub에 푸시
   ```bash
   git add .
   git commit -m "feat: MVP 완성"

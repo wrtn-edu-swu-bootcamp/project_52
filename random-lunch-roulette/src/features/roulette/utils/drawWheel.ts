@@ -6,15 +6,20 @@ import { Menu } from '@/types/menu';
 export const drawWheel = (
   ctx: CanvasRenderingContext2D,
   menus: Menu[],
-  rotation: number = 0
+  rotation: number = 0,
+  width?: number,
+  height?: number
 ): void => {
   const canvas = ctx.canvas;
-  const centerX = canvas.width / 2;
-  const centerY = canvas.height / 2;
+  // DPR 스케일링을 고려한 논리적 크기 사용
+  const logicalWidth = width ?? canvas.width / (window.devicePixelRatio || 1);
+  const logicalHeight = height ?? canvas.height / (window.devicePixelRatio || 1);
+  const centerX = logicalWidth / 2;
+  const centerY = logicalHeight / 2;
   const radius = Math.min(centerX, centerY) - 10;
 
   // 캔버스 초기화
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, logicalWidth, logicalHeight);
 
   // 회전 적용
   ctx.save();
@@ -48,12 +53,15 @@ export const drawWheel = (
     ctx.rotate(startAngle + anglePerSlice / 2);
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 14px "Pretendard Variable", sans-serif';
     
-    // 이모지와 메뉴명 함께 표시
-    const text = `${menu.emoji} ${menu.name}`;
-    ctx.fillText(text, radius * 0.65, 0);
+    // 이모지 그리기
+    ctx.font = '24px "Pretendard Variable", sans-serif';
+    ctx.fillText(menu.emoji, radius * 0.55, -8);
+    
+    // 메뉴명 그리기
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '600 16px "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif';
+    ctx.fillText(menu.name, radius * 0.55, 12);
     ctx.restore();
   });
 
@@ -61,10 +69,17 @@ export const drawWheel = (
 
   // 중앙 원 (장식)
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 30, 0, 2 * Math.PI);
+  ctx.arc(centerX, centerY, 40, 0, 2 * Math.PI);
   ctx.fillStyle = '#ffffff';
   ctx.fill();
   ctx.strokeStyle = '#333333';
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 4;
   ctx.stroke();
+  
+  // 중앙 원 내부 그라데이션 효과
+  const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 40);
+  gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+  gradient.addColorStop(1, 'rgba(240, 240, 240, 1)');
+  ctx.fillStyle = gradient;
+  ctx.fill();
 };

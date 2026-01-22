@@ -7,10 +7,11 @@
 }
 
 .canvas {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 
+              0 4px 16px rgba(0, 0, 0, 0.08);
   transition: transform var(--duration-fast) var(--ease-out);
 }
 
@@ -25,15 +26,15 @@
   }
   
   .canvas {
-    width: 280px;
-    height: 280px;
+    width: 320px;
+    height: 320px;
   }
 }
 
 /* 태블릿 */
 @media (min-width: 768px) and (max-width: 1023px) {
   .canvas {
-    width: 350px;
-    height: 350px;
+    width: 420px;
+    height: 420px;
   }
 }
