@@ -1,6 +1,16 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import { UserConfig } from 'vite'
+
+interface VitestConfigExport extends UserConfig {
+  test: {
+    globals: boolean;
+    environment: string;
+    setupFiles: string;
+  };
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,4 +33,4 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
   },
-})
+} as VitestConfigExport)

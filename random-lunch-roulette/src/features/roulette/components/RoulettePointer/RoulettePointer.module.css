@@ -1,0 +1,30 @@
+.pointer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.arrow {
+  font-size: 2rem;
+  color: var(--color-primary);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .arrow {
+    font-size: 1.5rem;
+  }
+}

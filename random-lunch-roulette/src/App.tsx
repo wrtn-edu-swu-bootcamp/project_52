@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { Header } from './components/layout/Header';
+import { Footer } from './components/layout/Footer';
+import { RoulettePointer } from './features/roulette/components/RoulettePointer';
+import { RouletteWheel } from './features/roulette/components/RouletteWheel';
+import { SpinButton } from './features/roulette/components/SpinButton';
+import { ResultModal } from './features/result/components/ResultModal';
+import { useRoulette } from './features/roulette/hooks/useRoulette';
+import styles from './App.module.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { isSpinning, rotation, selectedMenu, spin, reset } = useRoulette();
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    if (selectedMenu) {
+      setShowModal(true);
+    }
+  }, [selectedMenu]);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    reset();
+  };
+
+  const handleRetry = () => {
+    setShowModal(false);
+    reset();
+    spin();
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className={styles.app}>
+      <Header />
+      
+      <main className={styles.main}>
+        <section className={styles.rouletteSection}>
+          <div className={styles.rouletteContainer}>
+            <RoulettePointer />
+            <RouletteWheel rotation={rotation} isSpinning={isSpinning} />
+          </div>
+          <SpinButton onClick={spin} disabled={isSpinning} />
+        </section>
+      </main>
+
+      <Footer />
+
+      <ResultModal
+        menu={selectedMenu}
+        isOpen={showModal}
+        onClose={handleCloseModal}
+        onRetry={handleRetry}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;

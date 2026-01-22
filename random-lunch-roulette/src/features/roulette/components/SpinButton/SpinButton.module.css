@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-xl);
+}
+
+.button {
+  min-width: 180px;
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .container {
+    padding: var(--spacing-lg);
+  }
+  
+  .button {
+    width: 90%;
+    max-width: 310px;
+  }
+}

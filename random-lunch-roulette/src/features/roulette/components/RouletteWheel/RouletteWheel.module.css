@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: var(--spacing-xl);
+}
+
+.canvas {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.canvas.spinning {
+  /* 애니메이션은 JavaScript에서 제어 */
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .container {
+    padding: var(--spacing-lg);
+  }
+  
+  .canvas {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* 태블릿 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .canvas {
+    width: 350px;
+    height: 350px;
+  }
+}

@@ -1,0 +1,115 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: var(--z-modal-overlay);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  
+  animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  
+  position: relative;
+  z-index: var(--z-modal);
+  
+  animation: scaleIn var(--duration-normal) var(--ease-out);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.header {
+  padding: var(--spacing-xl);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  
+  background: transparent;
+  border: none;
+  color: var(--color-gray-600);
+  
+  font-size: 1.5rem;
+  cursor: pointer;
+  
+  transition: all var(--duration-fast) var(--ease-out);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background: var(--color-gray-100);
+  color: var(--color-gray-900);
+}
+
+.content {
+  padding: var(--spacing-xl);
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .modal {
+    max-width: 90%;
+    border-radius: var(--radius-lg);
+  }
+  
+  .header {
+    padding: var(--spacing-lg);
+  }
+  
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .content {
+    padding: var(--spacing-lg);
+  }
+}
