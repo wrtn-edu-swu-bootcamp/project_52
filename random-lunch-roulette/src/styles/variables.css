@@ -1,0 +1,159 @@
+/* Design Tokens - CSS Variables */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #FF6B35;
+  --color-primary-hover: #FF5722;
+  --color-primary-active: #E64A19;
+  --color-primary-light: #FFE8DF;
+  --color-primary-dark: #D84315;
+  
+  --color-secondary: #FFD23F;
+  --color-secondary-hover: #FFC107;
+  --color-secondary-light: #FFF9E6;
+  
+  --color-accent: #4ECDC4;
+  --color-accent-hover: #45B8AF;
+  
+  /* Neutral Colors */
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #EEEEEE;
+  --color-gray-300: #E0E0E0;
+  --color-gray-400: #BDBDBD;
+  --color-gray-500: #9E9E9E;
+  --color-gray-600: #757575;
+  --color-gray-700: #616161;
+  --color-gray-800: #424242;
+  --color-gray-900: #212121;
+  --color-gray-950: #0A0A0A;
+  
+  /* Semantic Colors */
+  --color-success: #4CAF50;
+  --color-success-light: #E8F5E9;
+  --color-success-dark: #2E7D32;
+  
+  --color-error: #F44336;
+  --color-error-light: #FFEBEE;
+  --color-error-dark: #C62828;
+  
+  --color-warning: #FF9800;
+  --color-warning-light: #FFF3E0;
+  --color-warning-dark: #E65100;
+  
+  --color-info: #2196F3;
+  --color-info-light: #E3F2FD;
+  --color-info-dark: #1565C0;
+  
+  /* Background & Text */
+  --color-background: var(--color-gray-50);
+  --color-surface: #FFFFFF;
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-border: var(--color-gray-300);
+  
+  /* Spacing (8px based system) */
+  --spacing-xxs: 0.125rem;  /* 2px */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;       /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 3rem;      /* 48px */
+  --spacing-3xl: 4rem;      /* 64px */
+  --spacing-4xl: 6rem;      /* 96px */
+  
+  /* Typography */
+  --font-primary: "Pretendard Variable", Pretendard, -apple-system, 
+                  BlinkMacSystemFont, system-ui, sans-serif;
+  
+  --text-xs: 0.75rem;       /* 12px */
+  --text-sm: 0.875rem;      /* 14px */
+  --text-base: 1rem;        /* 16px */
+  --text-lg: 1.125rem;      /* 18px */
+  --text-xl: 1.25rem;       /* 20px */
+  --text-2xl: 1.5rem;       /* 24px */
+  --text-3xl: 1.875rem;     /* 30px */
+  --text-4xl: 2.25rem;      /* 36px */
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.8;
+  
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+  
+  --shadow-primary: 0 4px 12px rgba(255, 107, 53, 0.25);
+  --shadow-secondary: 0 4px 12px rgba(255, 210, 63, 0.25);
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-roulette: 4000ms;
+  
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-roulette: cubic-bezier(0.17, 0.67, 0.12, 0.99);
+  
+  /* Z-Index */
+  --z-base: 0;
+  --z-raised: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-overlay: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+  
+  /* Icons */
+  --icon-xs: 12px;
+  --icon-sm: 16px;
+  --icon-md: 24px;
+  --icon-lg: 32px;
+  --icon-xl: 48px;
+}
+
+/* Dark Mode (자동 감지) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-50: #0A0A0A;
+    --color-gray-100: #1A1A1A;
+    --color-gray-200: #2D2D2D;
+    --color-gray-300: #404040;
+    --color-gray-400: #666666;
+    --color-gray-500: #808080;
+    --color-gray-600: #999999;
+    --color-gray-700: #B8B8B8;
+    --color-gray-800: #DBDBDB;
+    --color-gray-900: #F5F5F5;
+    --color-gray-950: #FAFAFA;
+    
+    --color-background: #0A0A0A;
+    --color-surface: #1A1A1A;
+    --color-text-primary: var(--color-gray-900);
+    --color-text-secondary: var(--color-gray-600);
+    --color-border: var(--color-gray-300);
+    
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
+  }
+}
