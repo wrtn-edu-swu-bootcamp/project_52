@@ -50,14 +50,14 @@ gantt
 
 ### 0.1 프로젝트 생성
 
-- [ ] **0.1.1** Vite 프로젝트 생성
+- [x] **0.1.1** Vite 프로젝트 생성
   ```bash
   npm create vite@latest random-lunch-roulette -- --template react-ts
   cd random-lunch-roulette
   npm install
   ```
 
-- [ ] **0.1.2** 기본 개발 도구 설치 (ESLint만)
+- [x] **0.1.2** 기본 개발 도구 설치 (ESLint만)
   ```bash
   npm install -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
   npm install -D eslint-plugin-react eslint-plugin-react-hooks
@@ -65,7 +65,7 @@ gantt
 
 ### 0.2 기본 설정
 
-- [ ] **0.2.1** `vite.config.ts` path alias 설정
+- [x] **0.2.1** `vite.config.ts` path alias 설정
   ```typescript
   import { defineConfig } from 'vite'
   import react from '@vitejs/plugin-react'
@@ -81,7 +81,7 @@ gantt
   })
   ```
 
-- [ ] **0.2.2** `tsconfig.json` path mapping 추가
+- [x] **0.2.2** `tsconfig.json` path mapping 추가
   ```json
   {
     "compilerOptions": {
@@ -95,7 +95,7 @@ gantt
 
 ### 0.3 Git 초기화 (기본만)
 
-- [ ] **0.3.1** Git 저장소 초기화
+- [x] **0.3.1** Git 저장소 초기화
   ```bash
   git init
   git add .
@@ -104,7 +104,7 @@ gantt
 
 ### 0.4 폴더 구조 생성 (최소)
 
-- [ ] **0.4.1** 기본 폴더 구조 생성
+- [x] **0.4.1** 기본 폴더 구조 생성
   ```bash
   mkdir -p src/components/layout
   mkdir -p src/components/common
@@ -126,19 +126,19 @@ gantt
 
 ### 1.1 디자인 시스템 (최소)
 
-- [ ] **1.1.1** `src/styles/variables.css` 작성
+- [x] **1.1.1** `src/styles/variables.css` 작성
   - 핵심 CSS 변수만 (색상, 간격, 타이포그래피)
   - design-guide.md에서 필수 항목만 복사
 
-- [ ] **1.1.2** `src/styles/globals.css` 작성
+- [x] **1.1.2** `src/styles/globals.css` 작성
   - 간단한 Reset (box-sizing, margin 0 등)
   - body 기본 스타일
 
-- [ ] **1.1.3** `main.tsx`에 스타일 import
+- [x] **1.1.3** `main.tsx`에 스타일 import
 
 ### 1.2 타입 및 데이터
 
-- [ ] **1.2.1** `src/types/menu.ts` 작성
+- [x] **1.2.1** `src/types/menu.ts` 작성
   ```typescript
   export enum MenuCategory {
     RICE = '밥류',
@@ -156,7 +156,7 @@ gantt
   }
   ```
 
-- [ ] **1.2.2** `src/data/constants.ts` 작성 (최소)
+- [x] **1.2.2** `src/data/constants.ts` 작성 (최소)
   ```typescript
   export const ANIMATION = {
     SPIN_DURATION: 4000,
@@ -164,12 +164,12 @@ gantt
   } as const;
   ```
 
-- [ ] **1.2.3** `src/data/menus.ts` 작성
+- [x] **1.2.3** `src/data/menus.ts` 작성
   - 30개 메뉴 데이터 (code-architecture.md 복사)
 
 ### 1.3 유틸리티 함수 (테스트 제외)
 
-- [ ] **1.3.1** `src/utils/random.ts` 작성
+- [x] **1.3.1** `src/utils/random.ts` 작성
   ```typescript
   export function getRandomMenu(menus: Menu[]): Menu
   export function calculateTargetRotation(menuIndex: number, totalMenus: number): number
@@ -177,55 +177,55 @@ gantt
 
 ### 1.4 Layout 컴포넌트 (간단히)
 
-- [ ] **1.4.1** `src/components/layout/Header.tsx` 작성
+- [x] **1.4.1** `src/components/layout/Header.tsx` 작성
   - 제목 + 부제만
   - CSS Module
 
-- [ ] **1.4.2** `src/components/layout/Footer.tsx` 작성
+- [x] **1.4.2** `src/components/layout/Footer.tsx` 작성
   - Copyright만
 
 ### 1.5 공통 컴포넌트 (최소)
 
-- [ ] **1.5.1** `src/components/common/Button.tsx` 작성
+- [x] **1.5.1** `src/components/common/Button.tsx` 작성
   - 1가지 스타일만 (primary)
   - disabled 상태만
   - CSS Module
 
-- [ ] **1.5.2** `src/components/common/Modal.tsx` 작성
+- [x] **1.5.2** `src/components/common/Modal.tsx` 작성
   - 기본 overlay + close
   - CSS Module
 
 ### 1.6 룰렛 핵심 기능
 
-- [ ] **1.6.1** `src/features/roulette/utils/drawWheel.ts` 작성
+- [x] **1.6.1** `src/features/roulette/utils/drawWheel.ts` 작성
   - Canvas 원형 휠 그리기
   - 메뉴별 색상 섹션
   - 메뉴명 + 이모지 표시
 
-- [ ] **1.6.2** `src/features/roulette/hooks/useRoulette.ts` 작성
+- [x] **1.6.2** `src/features/roulette/hooks/useRoulette.ts` 작성
   - 상태: isSpinning, rotation, selectedMenu
   - 함수: spin(), reset()
   - requestAnimationFrame 애니메이션 포함
 
-- [ ] **1.6.3** `src/features/roulette/RouletteWheel.tsx` 작성
+- [x] **1.6.3** `src/features/roulette/RouletteWheel.tsx` 작성
   - Canvas 렌더링
   - useRoulette Hook 사용
 
-- [ ] **1.6.4** `src/features/roulette/RoulettePointer.tsx` 작성
+- [x] **1.6.4** `src/features/roulette/RoulettePointer.tsx` 작성
   - ▼ 포인터 (CSS로 간단히)
 
-- [ ] **1.6.5** `src/features/roulette/SpinButton.tsx` 작성
+- [x] **1.6.5** `src/features/roulette/SpinButton.tsx` 작성
   - "돌리기" 버튼
   - 회전 중 disabled
 
 ### 1.7 결과 표시
 
-- [ ] **1.7.1** `src/features/result/ResultModal.tsx` 작성
+- [x] **1.7.1** `src/features/result/ResultModal.tsx` 작성
   - 선택된 메뉴 표시 (이름, 이모지, 카테고리)
   - "다시 돌리기" 버튼
   - "공유하기" 버튼 (Web Share API)
 
-- [ ] **1.7.2** `src/features/result/hooks/useShare.ts` 작성
+- [x] **1.7.2** `src/features/result/hooks/useShare.ts` 작성
   ```typescript
   export function useShare() {
     const shareToWeb = async (menu: Menu) => {
@@ -247,16 +247,16 @@ gantt
 
 ### 1.8 App 통합
 
-- [ ] **1.8.1** `src/App.tsx` 작성
+- [x] **1.8.1** `src/App.tsx` 작성
   - Header + RouletteWheel + SpinButton + Footer
   - ResultModal 조건부 렌더링
 
-- [ ] **1.8.2** `src/App.module.css` 작성
+- [x] **1.8.2** `src/App.module.css` 작성
   - 간단한 중앙 정렬 레이아웃
 
 ### 1.9 MVP 테스트 (수동)
 
-- [ ] **1.9.1** 로컬 실행 (`npm run dev`)
+- [x] **1.9.1** 로컬 실행 (`npm run dev`)
 - [ ] **1.9.2** 룰렛 돌리기 → 결과 확인
 - [ ] **1.9.3** 다시 돌리기 동작 확인
 - [ ] **1.9.4** 공유 기능 테스트 (모바일에서)
@@ -273,16 +273,16 @@ gantt
 
 ### 2.1 배포 준비 (최소)
 
-- [ ] **2.1.1** `index.html` 기본 메타 태그 추가
+- [x] **2.1.1** `index.html` 기본 메타 태그 추가
   ```html
   <meta name="description" content="오늘 점심 뭐 먹지? 고민을 재미있게 해결하는 랜덤 점심 메뉴 룰렛">
   <title>랜덤 점심 메뉴 룰렛</title>
   ```
 
-- [ ] **2.1.2** Favicon 추가 (간단히)
+- [x] **2.1.2** Favicon 추가 (간단히)
   - favicon.ico만 (온라인 생성기 사용)
 
-- [ ] **2.1.3** 간단한 `README.md` 작성
+- [x] **2.1.3** 간단한 `README.md` 작성
   ```markdown
   # 랜덤 점심 메뉴 룰렛
   
@@ -296,12 +296,12 @@ gantt
 
 ### 2.2 빌드 및 테스트
 
-- [ ] **2.2.1** 프로덕션 빌드
+- [x] **2.2.1** 프로덕션 빌드
   ```bash
   npm run build
   ```
 
-- [ ] **2.2.2** 빌드 확인
+- [x] **2.2.2** 빌드 확인
   ```bash
   npm run preview
   ```
