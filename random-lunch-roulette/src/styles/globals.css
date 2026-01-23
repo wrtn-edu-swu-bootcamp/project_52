@@ -1,4 +1,4 @@
-/* Global Styles & CSS Reset */
+/* Global Styles & CSS Reset - Toss Style */
 
 /* CSS Reset */
 *,
@@ -22,36 +22,39 @@ body {
   font-weight: 400;
   line-height: var(--line-height-relaxed);
   color: var(--color-text-primary);
-  background: var(--color-background);
+  background: var(--color-background-secondary);
+  letter-spacing: -0.01em;
   
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Typography */
+/* Typography - Toss style */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: var(--line-height-tight);
   color: var(--color-text-primary);
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
-h1 { font-size: 3.052rem; }
-h2 { font-size: 2.441rem; }
-h3 { font-size: 1.953rem; }
-h4 { font-size: 1.563rem; }
-h5 { font-size: 1.25rem; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+h5 { font-size: 1rem; }
 
 p {
   margin-bottom: 1rem;
+  color: var(--color-text-secondary);
 }
 
 p:last-child {
   margin-bottom: 0;
 }
 
-/* Links */
+/* Links - Toss style */
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -60,7 +63,6 @@ a {
 
 a:hover {
   color: var(--color-primary-hover);
-  text-decoration: underline;
 }
 
 /* Button reset */
@@ -72,6 +74,7 @@ button {
   border: none;
   padding: 0;
   cursor: pointer;
+  letter-spacing: inherit;
 }
 
 /* Image */
@@ -93,12 +96,13 @@ select {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  letter-spacing: inherit;
 }
 
-/* Focus styles */
+/* Focus styles - Toss style */
 *:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-light);
   border-radius: var(--radius-sm);
 }
 
@@ -134,6 +138,31 @@ select {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Selection - Toss style */
+::selection {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+/* Scrollbar - Toss style (webkit) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
 }
 
 /* Reduced motion */

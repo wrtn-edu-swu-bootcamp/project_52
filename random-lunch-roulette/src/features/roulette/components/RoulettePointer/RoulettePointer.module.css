@@ -1,16 +1,16 @@
 .pointer {
   position: absolute;
-  top: 0;
+  top: -8px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
 
 .arrow {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--color-primary);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-  animation: bounce 1s ease-in-out infinite;
+  filter: drop-shadow(0 3px 6px rgba(49, 130, 246, 0.3));
+  animation: bounce 1.5s var(--ease-spring) infinite;
 }
 
 @keyframes bounce {
@@ -18,13 +18,17 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(5px);
+    transform: translateY(6px);
   }
 }
 
 /* 모바일 */
 @media (max-width: 767px) {
+  .pointer {
+    top: -6px;
+  }
+  
   .arrow {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }

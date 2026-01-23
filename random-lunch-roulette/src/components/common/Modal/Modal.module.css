@@ -1,7 +1,8 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
   z-index: var(--z-modal-overlay);
   
   display: flex;
@@ -23,59 +24,59 @@
 
 .modal {
   background: var(--color-surface);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-xl);
   
   width: 100%;
-  max-width: 500px;
+  max-width: 420px;
   max-height: 90vh;
   overflow-y: auto;
   
   position: relative;
   z-index: var(--z-modal);
   
-  animation: scaleIn var(--duration-normal) var(--ease-out);
+  animation: slideUp var(--duration-normal) var(--ease-spring);
 }
 
-@keyframes scaleIn {
+@keyframes slideUp {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: translateY(24px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
 .header {
-  padding: var(--spacing-xl);
+  padding: var(--spacing-xl) var(--spacing-xl) 0;
   text-align: center;
-  border-bottom: 1px solid var(--color-border);
   position: relative;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-text-primary);
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .closeButton {
   position: absolute;
-  top: var(--spacing-lg);
-  right: var(--spacing-lg);
+  top: var(--spacing-md);
+  right: var(--spacing-md);
   
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   
-  background: transparent;
+  background: var(--color-gray-100);
   border: none;
-  color: var(--color-gray-600);
+  color: var(--color-gray-500);
   
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
   
   transition: all var(--duration-fast) var(--ease-out);
@@ -86,8 +87,12 @@
 }
 
 .closeButton:hover {
-  background: var(--color-gray-100);
-  color: var(--color-gray-900);
+  background: var(--color-gray-200);
+  color: var(--color-gray-700);
+}
+
+.closeButton:active {
+  transform: scale(0.95);
 }
 
 .content {
@@ -96,20 +101,27 @@
 
 /* 모바일 */
 @media (max-width: 767px) {
+  .overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  
   .modal {
-    max-width: 90%;
-    border-radius: var(--radius-lg);
+    max-width: 100%;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    max-height: 85vh;
   }
   
   .header {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-lg) 0;
   }
   
   .title {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
   
   .content {
     padding: var(--spacing-lg);
+    padding-bottom: var(--spacing-2xl);
   }
 }
